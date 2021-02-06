@@ -1,0 +1,30 @@
+.navbar-brand {
+  font-family: "Source Code Pro", monospace !important;
+  font-weight: 700 !important;
+}
+
+.gold-text {
+  color: #ffd700 !important;
+}
+
+.silver-text {
+  color: #c0c0c0 !important;
+}
+
+.text-price {
+  font-size: 1.5rem !important;
+  font-family: "Changa", sans-serif !important;
+  &::before {
+    content: "₹ ";
+    font-size: 1rem !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+}
+
+.btn-primary {
+  background: #ffd700 !important;
+  outline: none !important;
+  border: none !important;
+  color: #333 !important;
+  font-weight: 700 !important;
+}

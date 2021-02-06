@@ -1,0 +1,919 @@
+@charset "UTF-8";
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Source+Code+Pro&family=Changa&display=swap");
+/*===== VARIABLES CSS =====*/
+:root {
+  --header-height: 3rem;
+  --nav-width: 68px;
+  /*===== Colors =====*/
+  --first-color: #ffd700;
+  --first-color-light: #afa5d9;
+  --white-color: #f7f6fb;
+  /*===== Font and typography =====*/
+  --body-font: "Poppins", sans-serif;
+  --normal-font-size: 1rem;
+  /*===== z index =====*/
+  --z-fixed: 100;
+}
+
+/*===== BASE =====*/
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: var(--header-height) 0 0 0;
+  padding: 0 1rem;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background: #121212;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #333333;
+}
+
+::-webkit-scrollbar-track {
+  background: #333;
+  -webkit-box-shadow: inset 0 0 2.5px 2 rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 0 2.5px 2 rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 15px;
+}
+
+/*===== HEADER =====*/
+.header {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #333333;
+  z-index: var(--z-fixed);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.header__toggle {
+  color: var(--first-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.header__img {
+  width: 35px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header__img img {
+  width: 40px;
+}
+
+.header__pricebox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__pricebox .gold-text {
+  color: #ffd700 !important;
+}
+
+.header__pricebox .silver-text {
+  color: #c0c0c0 !important;
+}
+
+.header__pricebox .text-price {
+  font-size: 1.5rem !important;
+  font-family: "Changa", sans-serif !important;
+}
+
+.header__pricebox .text-price::before {
+  content: "₹ ";
+  font-size: 1rem !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/*===== NAV =====*/
+.l-navbar {
+  position: fixed;
+  top: 0;
+  left: -30%;
+  width: var(--nav-width);
+  height: 100vh;
+  background-color: var(--first-color);
+  padding: 0.5rem 1rem 0 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow: hidden;
+}
+
+.nav__logo, .nav__link {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: max-content max-content;
+      grid-template-columns: -webkit-max-content -webkit-max-content;
+      grid-template-columns: max-content max-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.nav__logo {
+  margin-bottom: 2rem;
+}
+
+.nav__logo-icon {
+  font-size: 1.25rem;
+  color: #3913e2;
+}
+
+.nav__logo-name {
+  color: #7e4c0a;
+  font-weight: 700;
+}
+
+.nav__link {
+  position: relative;
+  color: #333;
+  margin-bottom: 1.5rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--white-color);
+}
+
+.nav__icon {
+  font-size: 1.25rem;
+}
+
+/*Show navbar movil*/
+.show {
+  left: 0;
+}
+
+/*Add padding body movil*/
+.body-pd {
+  padding-left: calc(var(--nav-width) + 1rem);
+}
+
+/*Active links*/
+.active {
+  color: var(--white-color);
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 32px;
+  background-color: var(--white-color);
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 768px) {
+  body {
+    margin: calc(var(--header-height) + 1rem) 0 0 0;
+    padding-left: calc(var(--nav-width) + 2rem);
+  }
+  .header {
+    height: calc(var(--header-height) + 1rem);
+    padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+  }
+  .header__img {
+    width: 40px;
+    height: 40px;
+  }
+  .header__img img {
+    width: 45px;
+  }
+  .l-navbar {
+    left: 0;
+    padding: 1rem 1rem 0 0;
+  }
+  /*Show navbar desktop*/
+  .show {
+    width: calc(var(--nav-width) + 156px);
+  }
+  /*Add padding body desktop*/
+  .body-pd {
+    padding-left: calc(var(--nav-width) + 188px);
+  }
+}
+
+.card {
+  border-radius: 15px !important;
+  -webkit-box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) !important;
+  background: var(--first-color) !important;
+  color: #333 !important;
+}
+
+.overview {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 10px 15px;
+  border-radius: 15px;
+}
+
+.overview__title {
+  text-align: center;
+  color: #333;
+  font-weight: 700;
+}
+
+.overview__items {
+  color: #333;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 10px 0;
+}
+
+.overview__items span {
+  float: right;
+  font-weight: 700;
+}
+
+.overview__items span::after {
+  content: " grams";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.overview__items span.money::after {
+  content: " rupee" !important;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.form-group {
+  margin: 10px !important;
+}
+
+.form-group .form-control {
+  background: rgba(255, 255, 255, 0.5) !important;
+  outline: none !important;
+  border: none !important;
+  border-radius: 15px !important;
+}
+
+.form-group .form-control.btn-primary {
+  background: #333 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+.form-group .form-control.btn-primary:hover {
+  background: #fff !important;
+  color: #333 !important;
+}
+
+.profile-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 70vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.profile-card img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: 20px auto;
+  padding: 5px;
+  border: 2px solid #333;
+}
+
+.profile-card .profile-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.custom-icon-button {
+  color: #ffd700;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.custom-icon-button:hover {
+  color: #fff;
+}
+
+.wallet .text-price {
+  font-size: 1.5rem !important;
+  font-family: "Changa", sans-serif !important;
+}
+
+.wallet .text-price::before {
+  content: "₹ ";
+  font-size: 1rem !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.wallet .text-price::after {
+  content: ".00";
+}
+
+.custom-border {
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.trade-wrapper .price-box {
+  padding: 50px 0;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.trade-wrapper .price-box .gold-text {
+  color: #ffd700 !important;
+}
+
+.trade-wrapper .price-box .silver-text {
+  color: #c0c0c0 !important;
+}
+
+.trade-wrapper .price-box .text-price {
+  font-size: 4rem !important;
+  font-family: "Changa", sans-serif !important;
+}
+
+.trade-wrapper .price-box .text-price::before {
+  content: "₹ ";
+  font-size: 2rem !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.transections {
+  height: 100%;
+}
+
+.transections__items {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.transections__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  background: #ffd700;
+  border-radius: 50%;
+  color: #333;
+}
+
+.transections__icons i {
+  font-size: 20px;
+  line-height: 20px;
+  color: #333;
+}
+
+.transections__type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 200px;
+  height: 35px;
+  border-radius: 15px;
+  background: #ffd700;
+}
+
+.transections__type h5 {
+  color: #333;
+  font-weight: 700;
+  display: block;
+  margin: auto;
+}
+
+.transections__data {
+  width: 200px;
+  height: 35px;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #ffd700;
+}
+
+.transections__data h5 {
+  color: #333;
+  font-weight: 700;
+  display: block;
+  margin: auto;
+}
+
+.transections__amount {
+  width: 200px;
+  height: 35px;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #ffd700;
+}
+
+.transections__amount h5 {
+  color: #333;
+  font-weight: 700;
+  display: block;
+  margin: auto;
+  font-family: "Changa", sans-serif !important;
+}
+
+.transections__amount h5::before {
+  content: "₹ ";
+  font-size: small;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.transections__amount h5::after {
+  content: ".00";
+}
+
+.transections__devider {
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.transections__devider i {
+  display: block;
+  font-size: 20px;
+  line-height: 20px;
+  color: #f0f0f0;
+  margin: 0 2px;
+}
+
+.transections__devider::before, .transections__devider::after {
+  content: "";
+  height: 1px;
+  width: 40px;
+  background: #f0f0f098;
+}
+
+@media only screen and (max-width: 425px) {
+  .header__pricebox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header__pricebox .gold-text {
+    font-size: small !important;
+    color: #ffd700 !important;
+  }
+  .header__pricebox .silver-text {
+    font-size: small !important;
+    color: #c0c0c0 !important;
+  }
+  .header__pricebox .text-price {
+    font-size: 1rem !important;
+    font-family: "Changa", sans-serif !important;
+  }
+  .header__pricebox .text-price::before {
+    content: "₹ ";
+    font-size: 0.75rem !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+  .overview {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 5px 10px;
+    border-radius: 15px;
+  }
+  .overview__title {
+    text-align: center;
+    color: #333;
+    font-weight: 700;
+  }
+  .overview__items {
+    color: #333;
+    font-size: 15px;
+    line-height: 15px;
+    margin: 5px 0;
+  }
+  .overview__items span {
+    float: right;
+    font-weight: 700;
+  }
+  .overview__items span::after {
+    content: " grams";
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .overview__items span.money::after {
+    content: " rupee" !important;
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .trade-wrapper .price-box {
+    padding: 50px 0;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+  }
+  .trade-wrapper .price-box .gold-text {
+    color: #ffd700 !important;
+  }
+  .trade-wrapper .price-box .silver-text {
+    color: #c0c0c0 !important;
+  }
+  .trade-wrapper .price-box .text-price {
+    font-size: 2rem !important;
+    font-family: "Changa", sans-serif !important;
+  }
+  .trade-wrapper .price-box .text-price::before {
+    content: "₹ ";
+    font-size: 0.75rem !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+  .transections {
+    height: 100%;
+  }
+  .transections__items {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 20px 0;
+  }
+  .transections__icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    background: #ffd700;
+    border-radius: 50%;
+    color: #333;
+  }
+  .transections__icons i {
+    font-size: 20px;
+    line-height: 20px;
+    color: #333;
+  }
+  .transections__type {
+    display: none !important;
+  }
+  .transections__data {
+    width: 80px !important;
+    height: 35px;
+    border-radius: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #ffd700;
+  }
+  .transections__data h5 {
+    font-size: 10px !important;
+    color: #333;
+    font-weight: 700;
+    display: block;
+    margin: auto;
+  }
+  .transections__amount {
+    width: 100px !important;
+    height: 35px;
+    border-radius: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #ffd700;
+  }
+  .transections__amount h5 {
+    font-size: 10px !important;
+    color: #333;
+    font-weight: 700;
+    display: block;
+    margin: auto;
+    font-family: "Changa", sans-serif !important;
+  }
+  .transections__amount h5::before {
+    content: "₹ ";
+    font-size: small;
+    font-family: "Poppins", sans-serif !important;
+  }
+  .transections__amount h5::after {
+    content: ".00";
+  }
+  .transections__devider {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .custom-border {
+    border-left: none !important;
+  }
+  .transections {
+    height: 100%;
+  }
+  .transections__items {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 20px 0;
+  }
+  .transections__icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    background: #ffd700;
+    border-radius: 50%;
+    color: #333;
+  }
+  .transections__icons i {
+    font-size: 20px;
+    line-height: 20px;
+    color: #333;
+  }
+  .transections__type {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    width: 150px;
+    height: 35px;
+    border-radius: 15px;
+    background: #ffd700;
+  }
+  .transections__type h5 {
+    font-size: 15px !important;
+    color: #333;
+    font-weight: 700;
+    display: block;
+    margin: auto;
+  }
+  .transections__data {
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #ffd700;
+  }
+  .transections__data h5 {
+    font-size: 15px;
+    color: #333;
+    font-weight: 700;
+    display: block;
+    margin: auto;
+  }
+  .transections__amount {
+    width: 150px;
+    height: 35px;
+    border-radius: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #ffd700;
+  }
+  .transections__amount h5 {
+    font-size: 15px;
+    color: #333;
+    font-weight: 700;
+    display: block;
+    margin: auto;
+    font-family: "Changa", sans-serif !important;
+  }
+  .transections__amount h5::before {
+    content: "₹ ";
+    font-size: small;
+    font-family: "Poppins", sans-serif !important;
+  }
+  .transections__amount h5::after {
+    content: ".00";
+  }
+  .transections__devider {
+    height: 35px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  .transections__devider i {
+    display: block;
+    font-size: 20px;
+    line-height: 20px;
+    color: #f0f0f0;
+    margin: 0 2px;
+  }
+  .transections__devider::before, .transections__devider::after {
+    content: none !important;
+  }
+}
+/*# sourceMappingURL=dashboard.css.map */

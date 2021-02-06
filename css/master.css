@@ -1,0 +1,435 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Source+Code+Pro&family=Changa&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #121212 !important;
+  height: 100vh;
+  font-family: "Poppins", sans-serif !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #333333;
+}
+
+::-webkit-scrollbar-track {
+  background: #333;
+  -webkit-box-shadow: inset 0 0 2.5px 2 rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 0 2.5px 2 rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 15px;
+}
+
+.hero {
+  min-height: 90vh !important;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.1))), url("../assets/bg-image.png");
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url("../assets/bg-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero .card {
+  border-radius: 15px !important;
+  -webkit-box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+          backdrop-filter: blur(3px) !important;
+}
+
+.hero .card::after {
+  content: none !important;
+}
+
+.hero .card .card-title {
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+
+.hero .card .form-pill {
+  background: #f0f0f0;
+  color: #333;
+  width: auto;
+  height: 40px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero .card .form-pill select {
+  width: 100px !important;
+  background: transparent !important;
+  outline: none;
+  border: none;
+  color: #333 !important;
+}
+
+.hero .card .form-pill input {
+  width: 100px !important;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: #333 !important;
+}
+
+.feature-badge {
+  background: #121212;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  -webkit-transform: translate(0, -50px);
+          transform: translate(0, -50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffd700;
+}
+
+.feature-badge h1 {
+  font-size: 50px;
+  line-height: 50px;
+}
+
+.how-it-works {
+  min-height: 90vh;
+}
+
+.how-it-works .stepper-container-horizontal {
+  border: 2px solid #ffd700;
+  border-radius: 15px;
+  margin: 40px auto;
+  padding: 30px;
+  width: 80%;
+  -webkit-box-shadow: 0 0 13px #333;
+          box-shadow: 0 0 13px #333;
+  position: relative;
+}
+
+.how-it-works .stepper-container-horizontal .content {
+  background: #fff;
+  height: 100px;
+  width: 100px;
+  margin: 10px auto;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+}
+
+.how-it-works .stepper-container-horizontal .content h1 {
+  font-size: 50px;
+  line-height: 50px;
+  color: #ffd700;
+}
+
+.how-it-works .stepper-container-horizontal .text-light {
+  color: #c0c0c0 !important;
+  font-size: 12px;
+}
+
+.testimonials {
+  min-height: 100vh;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("../assets/testimonials.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.testimonials .client-description {
+  text-align: center;
+  font-style: italic;
+  color: #fff;
+}
+
+.testimonials .client-name {
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 80px;
+}
+
+.testimonials .client-img {
+  width: 200px;
+  height: 200px;
+  padding: 5px;
+  border: 1px solid #c0c0c0;
+  margin-bottom: 20px;
+}
+
+.testimonials .carousel-control-prev-icon {
+  color: #ffd700 !important;
+}
+
+.testimonials .carousel-control-next-icon {
+  color: #ffd700 !important;
+}
+
+.contact {
+  min-height: 100vh;
+}
+
+.contact .card {
+  border-radius: 15px !important;
+  -webkit-box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) !important;
+  background: #ffd700 !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #333;
+}
+
+.contact .card::after {
+  content: none !important;
+}
+
+.contact .card h5 {
+  color: #333;
+  font-weight: 700;
+}
+
+.contact .card .form-group {
+  margin: 10px !important;
+}
+
+.contact .card .form-group .form-control {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 15px !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.contact .card .form-group .form-control.btn-secondary {
+  background: #333 !important;
+  border: none !important;
+  outline: none !important;
+  font-weight: 700 !important;
+}
+
+.contact .card .form-group .form-control.btn-secondary:hover {
+  background: #c0c0c0 !important;
+  color: #333 !important;
+}
+
+footer {
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+}
+
+footer .footer-hero {
+  color: #ffd700;
+  font-weight: 700;
+  font-family: "Source Code Pro", monospace !important;
+}
+
+footer h5 {
+  color: #ffd700;
+}
+
+footer span {
+  color: #c0c0c0;
+}
+
+footer .footer-link {
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+footer .footer-link:hover {
+  color: #c0c0c0;
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 425px) {
+  .hero .card .form-pill {
+    margin: 10px 0;
+  }
+  .hero .card .form-pill select {
+    width: 100% !important;
+    margin-left: 10px !important;
+  }
+  .hero .card .form-pill input {
+    width: 100% !important;
+    margin-left: 10px !important;
+  }
+  .testimonials .client-img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .contact .card {
+    width: 90% !important;
+  }
+}
+
+.product {
+  background: #ffd700 !important;
+  border-radius: 15px !important;
+}
+
+.product__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.product__title h5 {
+  font-weight: 700;
+  color: #333333;
+  margin-left: 5px;
+  display: block;
+  line-height: 30px;
+}
+
+.product__title i {
+  color: #333333;
+  font-weight: 700;
+  font-size: 30px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.product .form-group {
+  margin: 10px 5px !important;
+}
+
+.product .form-group label {
+  margin: 2px !important;
+  color: #333 !important;
+  font-weight: 700 !important;
+}
+
+.product .form-group .form-control {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 15px !important;
+  border: none !important;
+  -webkit-box-ordinal-group: none !important;
+      -ms-flex-order: none !important;
+          order: none !important;
+}
+
+.product .form-group .form-control.btn-primary {
+  background: #333333 !important;
+  color: #f0f0f0 !important;
+  font-weight: 700 !important;
+}
+
+.navbar-brand {
+  font-family: "Source Code Pro", monospace !important;
+  font-weight: 700 !important;
+}
+
+.gold-text {
+  color: #ffd700 !important;
+}
+
+.silver-text {
+  color: #c0c0c0 !important;
+}
+
+.text-price {
+  font-size: 1.5rem !important;
+  font-family: "Changa", sans-serif !important;
+}
+
+.text-price::before {
+  content: "₹ ";
+  font-size: 1rem !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.btn-primary {
+  background: #ffd700 !important;
+  outline: none !important;
+  border: none !important;
+  color: #333 !important;
+  font-weight: 700 !important;
+}
+
+.login-wrapper {
+  min-height: 100vh;
+}
+
+.login-wrapper .card {
+  border-radius: 15px !important;
+  -webkit-box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) !important;
+  background: #ffd700;
+  color: #333;
+}
+
+.login-wrapper .card .form-group {
+  margin: 10px !important;
+}
+
+.login-wrapper .card .form-group .form-control {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 15px !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.login-wrapper .card .form-group .form-control.btn-secondary {
+  background: #333 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+.login-wrapper .card .form-group .form-control.btn-secondary:hover {
+  background: #c0c0c0 !important;
+  color: #333 !important;
+}
+
+.login-wrapper .card .form-group .signup-link {
+  text-decoration: none !important;
+  font-weight: 700;
+  cursor: pointer;
+  color: #3498db;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.login-wrapper .card .form-group .signup-link:hover {
+  color: #fff;
+}
+/*# sourceMappingURL=master.css.map */
