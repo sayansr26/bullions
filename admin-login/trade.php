@@ -1,7 +1,7 @@
 <?php
 
-include('./include/config.php');
-include('./include/function.php');
+include('include/config.php');
+include('include/function.php');
 
 
 // fetch the product prices
@@ -36,26 +36,6 @@ foreach ($result2 as $row2) {
 
 if (login()) {
 
-    $uid = $_COOKIE['uid'];
-
-    $query = "SELECT * FROM user_data WHERE id = :id";
-    $statement = $connection->prepare($query);
-    $statement->execute(
-        array(
-            'id' => $uid
-        )
-    );
-    $result = $statement->fetchAll();
-    foreach ($result as $row) {
-        $name = $row['name'];
-        $email = $row['email'];
-        $phone = $row['phone'];
-        $walletBalance = $row['wallet_balance'];
-        $widthdrawlBalance  = $row['withdrawl_balance'];
-        $goldBalance  = $row['gold_balance'];
-        $silverBalance  = $row['silver_balance'];
-        $profileStatus = $row['profile_status'];
-    }
 
 
 
@@ -65,19 +45,13 @@ if (login()) {
 
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!-- bootstrap css -->
-
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
         <!-- ===== BOX ICONS ===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
-        <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="./css/dashboard.css">
-
-        <title>Bullions - User Transections</title>
+        <link rel="stylesheet" href="../css/dashboard.css">
+        <title>Bullions - Admin</title>
     </head>
 
     <body id="body-pd">
@@ -86,11 +60,11 @@ if (login()) {
                 <i class='bx bx-menu' id="header-toggle"></i>
             </div>
             <div class="header__pricebox">
-                <a href="#" class="nav-link gold-text">Gold&nbsp;&nbsp;<span class="text-white text-price"><?php echo $goldPrice ?></span></a>
-                <a href="#" class="nav-link silver-text">Silver&nbsp;&nbsp;<span class="text-white text-price"><?php echo $silverPrice ?></span></a>
+                <a href="#" class="nav-link gold-text">Gold&nbsp;&nbsp;<span class="text-white text-price"><?php echo $goldPrice; ?></span></a>
+                <a href="#" class="nav-link silver-text">Silver&nbsp;&nbsp;<span class="text-white text-price"><?php echo $silverPrice; ?></span></a>
             </div>
             <div class="header__img">
-                <img src="./assets/user.png" alt="profile">
+                <img src="../assets/user.png" alt="profile">
             </div>
         </header>
 
@@ -103,29 +77,24 @@ if (login()) {
                     </a>
 
                     <div class="nav__list">
-                        <a href="dashboard" class="nav__link">
+                        <a href="/admin-login/" class="nav__link">
                             <i class='bx bx-grid-alt nav__icon'></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
 
-                        <a href="profile" class="nav__link">
+                        <a href="users" class="nav__link">
                             <i class='bx bx-user nav__icon'></i>
-                            <span class="nav__name">Profile</span>
+                            <span class="nav__name">Users</span>
                         </a>
 
-                        <a href="wallet" class="nav__link">
+                        <a href="withdrawls" class="nav__link">
                             <i class='bx bx-wallet-alt nav__icon'></i>
-                            <span class="nav__name">Wallet</span>
+                            <span class="nav__name">Withdrawls</span>
                         </a>
 
-                        <a href="trade" class="nav__link">
+                        <a href="trade" class="nav__link active">
                             <i class='bx bx-trending-up nav__icon'></i>
-                            <span class="nav__name">Buy & Sell</span>
-                        </a>
-
-                        <a href="transections" class="nav__link active">
-                            <i class='bx bx-transfer nav__icon'></i>
-                            <span class="nav__name">Transections</span>
+                            <span class="nav__name">Trades</span>
                         </a>
 
                         <a href="support" class="nav__link">
@@ -150,13 +119,9 @@ if (login()) {
                         <div class="col-12">
                             <?php
 
-                            $query = "SELECT * FROM transections WHERE user = :phone ORDER BY id DESC";
+                            $query = "SELECT * FROM transections WHERE type <> 'withdraw' ORDER BY id DESC";
                             $statement = $connection->prepare($query);
-                            $statement->execute(
-                                array(
-                                    'phone' => $phone
-                                )
-                            );
+                            $statement->execute();
 
                             $rowCount =  $statement->rowCount();
 
@@ -199,7 +164,7 @@ if (login()) {
                                 }
                             } else {
                                 echo "
-                                        <div class='bg-warning text-danger w-50 mx-auto rounded shadow text-center'>No transections found</div>
+                                        <h5 class='text-center fw-bold'>No transections found</h5>
                                     ";
                             }
 
@@ -210,13 +175,9 @@ if (login()) {
             </div>
         </div>
         <!-- main content -->
-        <a class="whatsapp-suppurt" target="_blank" href="https://wa.me/9876543210">
-            <img src="assets/whatsapp.svg" height="50" width="50" alt="">
-        </a>
-        <!-- bootsrap js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-        <!--===== MAIN JS =====-->
-        <script src="./js/dashboard.js"></script>
+        <script src="../js/dashboard.js"></script>
     </body>
 
     </html>

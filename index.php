@@ -310,6 +310,9 @@ if (login()) {
             </div>
         </div>
     </section>
+    <a class="whatsapp-suppurt" target="_blank" href="https://wa.me/9876543210">
+        <img src="assets/whatsapp.svg" height="50" width="50" alt="">
+    </a>
     <section class="footer">
         <?php include('./components/footer.php') ?>
     </section>

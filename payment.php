@@ -263,8 +263,8 @@ if (login()) {
                 "card": "0",
                 "upi": "0",
                 "wallet": "1",
-                "emi": "0",
-                "paylater": "0"
+                "emi": "1",
+                "paylater": "1"
             }
 
         };

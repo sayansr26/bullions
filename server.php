@@ -237,7 +237,7 @@ if (isset($_GET['auth'])) {
                 try {
                     $update = "UPDATE user_data SET gold_balance = '$newgold' WHERE phone = '$user'";
                     $connection->exec($update);
-                    echo "success?user=$user&asset=$asset&total=$total&orderid=$orderId";
+                    echo "success?user=$user&asset=$asset&total=$total&orderid=$orderId&type=buy";
                 } catch (PDOException $e) {
                     echo "Faield : " . $e->getMessage();
                 }
@@ -245,7 +245,7 @@ if (isset($_GET['auth'])) {
                 try {
                     $update = "UPDATE user_data SET silver_balance = '$newsilver' WHERE phone = '$user'";
                     $connection->exec($update);
-                    echo "success?user=$user&asset=$asset&total=$total&orderid=$orderId";
+                    echo "success?user=$user&asset=$asset&total=$total&orderid=$orderId&type=buy";
                 } catch (PDOException $e) {
                     echo "Faield : " . $e->getMessage();
                 }
@@ -391,7 +391,7 @@ if (isset($_GET['auth'])) {
             try {
                 $update = "UPDATE user_data SET gold_balance = '0', withdrawl_balance = '$newbalance' WHERE phone = '$user'";
                 $connection->exec($update);
-                echo "success?user=$user&asset=$asset&total=$total&orderid=$orderId";
+                echo "success?user=$user&asset=$asset&total=$total&orderid=$orderId&type=sell";
             } catch (PDOException $e) {
                 echo "Faield : " . $e->getMessage();
             }
@@ -399,7 +399,7 @@ if (isset($_GET['auth'])) {
             try {
                 $update = "UPDATE user_data SET silver_balance = '0', withdrawl_balance = '$newbalance' WHERE phone = '$user'";
                 $connection->exec($update);
-                echo "success?user=$user&asset=$asset&total=$total&orderid=$orderId";
+                echo "success?user=$user&asset=$asset&total=$total&orderid=$orderId&type=sell";
             } catch (PDOException $e) {
                 echo "Faield : " . $e->getMessage();
             }

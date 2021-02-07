@@ -62,6 +62,7 @@ if (isset($_GET['user'])) {
     $asset = $_GET['asset'];
     $total = $_GET['total'];
     $orderId = $_GET['orderid'];
+    $type = $_GET['type'];
 }
 
 ?>
@@ -131,23 +132,37 @@ if (isset($_GET['user'])) {
                         <hr>
                         <div class="form-group">
                             <label for="#">User : </label>
-                            <input type="text" class="form-control" value="<?php echo $user; ?>">
+                            <input type="text" class="form-control" value="<?php echo $user; ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="#">Asset : </label>
-                            <input type="text" class="form-control" value="<?php echo $asset; ?>">
+                            <input type="text" class="form-control" value="<?php echo $asset; ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="#">Amount : </label>
-                            <input type="text" class="form-control" value="<?php echo $total; ?>">
+                            <input type="text" class="form-control" value="<?php echo $total; ?>" readonly>
                         </div>
-                        <div class="form-group">
-                            <label for="#">Order Id : </label>
-                            <input type="text" class="form-control" value="<?php echo $orderId; ?>">
-                        </div>
-                        <div class="form-group">
-                            <a href="wallet" class="btn btn-primary form-control shadow">Go To Wallet</a>
-                        </div>
+                        <?php
+
+                        if ($type == 'buy') {
+                            echo "
+                                    <div class='form-group'>
+                                        <label for='#'>Order Id : </label>
+                                        <input type='text' class='form-control' value='$orderId' readonly>
+                                    </div>
+                                    <div class='form-group'>
+                                        <a href='trade' class='btn btn-primary form-control shadow'>Sell Now</a>
+                                    </div>
+                                ";
+                        } else {
+                            echo "
+                                    <div class='form-group'>
+                                        <a href='wallet' class='btn btn-primary form-control shadow'>Go To Wallet</a>
+                                    </div>
+                                ";
+                        }
+
+                        ?>
                     </div>
                 </div>
             </div>

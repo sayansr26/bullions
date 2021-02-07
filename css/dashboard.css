@@ -916,4 +916,146 @@ a {
     content: none !important;
   }
 }
+
+.admin-card__hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.admin-card__hero-icon {
+  color: #333;
+  font-size: 5rem;
+  display: block;
+}
+
+.admin-card__hero-text {
+  font-size: 2rem !important;
+  font-weight: 700;
+  font-family: "Changa", sans-serif !important;
+  display: block;
+  color: #333;
+}
+
+.admin-card__hero-text::after {
+  content: " grams";
+  font-size: 1rem !important;
+  font-family: "Poppins", sans-serif;
+}
+
+.admin-card__hero__desc {
+  font-weight: 700 !important;
+}
+
+.search-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto 0;
+  width: 50% !important;
+}
+
+.search-box input {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: none !important;
+  outline: none !important;
+  border-radius: 15px !important;
+  width: 100%;
+  padding: 5px 15px;
+}
+
+.user {
+  position: relative;
+}
+
+.user .advance-button {
+  background: #333;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  outline: none;
+  width: 100px;
+  height: 35px;
+  font-weight: 700;
+  padding-left: 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  position: absolute;
+  right: 0px;
+  margin-right: -1px;
+  bottom: 10px;
+}
+
+.user .advance-button:hover {
+  color: #ffd700;
+}
+
+.user .text-price {
+  font-size: 3rem !important;
+  font-family: "Changa", sans-serif !important;
+}
+
+.user .text-price::before {
+  content: "₹ ";
+  font-size: 1.5rem !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.input-group {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: none !important;
+  outline: none !important;
+  margin: 10px auto !important;
+  border-radius: 15px !important;
+}
+
+.input-group:hover, .input-group:focus, .input-group:active {
+  border: none !important;
+  outline: none !important;
+}
+
+.input-group .input-group-text {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.input-group .form-control {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  outline-width: none !important;
+}
+
+.input-group .form-control:hover, .input-group .form-control:focus, .input-group .form-control:active {
+  border: none !important;
+  outline: none !important;
+  outline-width: none !important;
+}
+
+.whatsapp-suppurt {
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+}
 /*# sourceMappingURL=dashboard.css.map */

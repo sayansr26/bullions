@@ -354,6 +354,12 @@ footer .footer-link:hover {
   font-weight: 700 !important;
 }
 
+.whatsapp-suppurt {
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+}
+
 .navbar-brand {
   font-family: "Source Code Pro", monospace !important;
   font-weight: 700 !important;

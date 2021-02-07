@@ -140,7 +140,7 @@ if (login()) {
                                 </div>
                                 <hr>
                                 <div class="form-group text-center">
-                                    <p>Trouble With OTP ? <a href="login" class="signup-link">Login</a></p>
+                                    <p>Already have an account ? <a href="login" class="signup-link">Login</a></p>
                                 </div>
                             </form>
                         </div>
@@ -149,6 +149,9 @@ if (login()) {
             </div>
         </div>
     </section>
+    <a class="whatsapp-suppurt" target="_blank" href="https://wa.me/9876543210">
+        <img src="assets/whatsapp.svg" height="50" width="50" alt="">
+    </a>
     <section class="footer">
         <?php include('./components/footer.php') ?>
     </section>

@@ -300,6 +300,9 @@ if (login()) {
                 </div>
             </div>
         </div>
+        <a class="whatsapp-suppurt" target="_blank" href="https://wa.me/9876543210">
+            <img src="assets/whatsapp.svg" height="50" width="50" alt="">
+        </a>
         <!-- main content -->
         <!-- bootsrap js -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

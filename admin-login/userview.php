@@ -1,51 +1,24 @@
 <?php
 
-include('./include/config.php');
-include('./include/function.php');
+include('include/config.php');
+include('include/function.php');
 
 
+// get user details
 
-// fetch the product prices
-
-$goldQuery = "SELECT * FROM product_rate WHERE product = :product1";
-$silverQuery = "SELECT * FROM product_rate WHERE product = :product2";
-$statement1 = $connection->prepare($goldQuery);
-$statement2 = $connection->prepare($silverQuery);
-$statement1->execute(
-    array(
-        'product1' => 'gold'
-    )
-);
-$statement2->execute(
-    array(
-        'product2' => 'silver'
-    )
-);
-
-$result1 = $statement1->fetchAll();
-$result2 = $statement2->fetchAll();
-
-foreach ($result1 as $row1) {
-    $goldPrice = $row1['price'];
-}
-
-foreach ($result2 as $row2) {
-    $silverPrice = $row2['price'];
-    // echo $silverPrice;
-}
-
-if (login()) {
-
-    $uid = $_COOKIE['uid'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
     $query = "SELECT * FROM user_data WHERE id = :id";
     $statement = $connection->prepare($query);
     $statement->execute(
         array(
-            'id' => $uid
+            'id' => $id
         )
     );
+
     $result = $statement->fetchAll();
+
     foreach ($result as $row) {
         $name = $row['name'];
         $email = $row['email'];
@@ -96,6 +69,39 @@ if (login()) {
             $hasaccount = 'yes';
         }
     }
+}
+
+
+// fetch the product prices
+
+$goldQuery = "SELECT * FROM product_rate WHERE product = :product1";
+$silverQuery = "SELECT * FROM product_rate WHERE product = :product2";
+$statement1 = $connection->prepare($goldQuery);
+$statement2 = $connection->prepare($silverQuery);
+$statement1->execute(
+    array(
+        'product1' => 'gold'
+    )
+);
+$statement2->execute(
+    array(
+        'product2' => 'silver'
+    )
+);
+
+$result1 = $statement1->fetchAll();
+$result2 = $statement2->fetchAll();
+
+foreach ($result1 as $row1) {
+    $goldPrice = $row1['price'];
+}
+
+foreach ($result2 as $row2) {
+    $silverPrice = $row2['price'];
+    // echo $silverPrice;
+}
+
+if (login()) {
 
 
 
@@ -115,7 +121,7 @@ if (login()) {
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="./css/dashboard.css">
+        <link rel="stylesheet" href="../css/dashboard.css">
 
         <title>Bullions - User Profile</title>
     </head>
@@ -127,10 +133,10 @@ if (login()) {
             </div>
             <div class="header__pricebox">
                 <a href="#" class="nav-link gold-text">Gold&nbsp;&nbsp;<span class="text-white text-price"><?php echo $goldPrice; ?></span></a>
-                <a href="#" class="nav-link silver-text">Silver&nbsp;&nbsp;<span class="text-white text-price"><?php echo $silverPrice ?></span></a>
+                <a href="#" class="nav-link silver-text">Silver&nbsp;&nbsp;<span class="text-white text-price"><?php echo $silverPrice; ?></span></a>
             </div>
             <div class="header__img">
-                <img src="./assets/user.png" alt="profile">
+                <img src="../assets/user.png" alt="profile">
             </div>
         </header>
 
@@ -143,29 +149,24 @@ if (login()) {
                     </a>
 
                     <div class="nav__list">
-                        <a href="dashboard" class="nav__link">
+                        <a href="/admin-login/" class="nav__link">
                             <i class='bx bx-grid-alt nav__icon'></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
 
-                        <a href="profile" class="nav__link active">
+                        <a href="users" class="nav__link active">
                             <i class='bx bx-user nav__icon'></i>
-                            <span class="nav__name">Profile</span>
+                            <span class="nav__name">Users</span>
                         </a>
 
-                        <a href="wallet" class="nav__link">
+                        <a href="withdrawls" class="nav__link">
                             <i class='bx bx-wallet-alt nav__icon'></i>
-                            <span class="nav__name">Wallet</span>
+                            <span class="nav__name">Withdrawls</span>
                         </a>
 
                         <a href="trade" class="nav__link">
                             <i class='bx bx-trending-up nav__icon'></i>
-                            <span class="nav__name">Buy & Sell</span>
-                        </a>
-
-                        <a href="transections" class="nav__link">
-                            <i class='bx bx-transfer nav__icon'></i>
-                            <span class="nav__name">Transections</span>
+                            <span class="nav__name">Trades</span>
                         </a>
 
                         <a href="support" class="nav__link">
@@ -191,7 +192,7 @@ if (login()) {
                             <div class="card my-5 my-lg-0">
                                 <div class="card-body">
                                     <div class="profile-card">
-                                        <img src="./assets/user.png" alt="user" class="img-fluid">
+                                        <img src="../assets/user.png" alt="user" class="img-fluid">
                                         <div class="profile-details">
                                             <h5><?php echo $name; ?></h5>
                                             <span><?php echo $email; ?></span>
@@ -317,38 +318,28 @@ if (login()) {
             </div>
         </div>
         <!-- main content -->
-        <a class="whatsapp-suppurt" target="_blank" href="https://wa.me/9876543210">
-            <img src="assets/whatsapp.svg" height="50" width="50" alt="">
-        </a>
         <!-- bootsrap js -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <!--===== MAIN JS =====-->
-        <script src="./js/dashboard.js"></script>
+        <script src="../js/dashboard.js"></script>
         <script>
             // kyc edit system
             function keceditunlock() {
-                // alert('Kyc unlocked');
-
-                var profile = $('#profile').val();
-                if (profile == 'not_verified') {
-                    $('#address').removeAttr('disabled');
-                    $('#address').val('');
-                    $('#district').removeAttr('disabled');
-                    $('#district').val('');
-                    $('#state').removeAttr('disabled');
-                    $('#state').val('');
-                    $('#city').removeAttr('disabled');
-                    $('#city').val('');
-                    $('#pancard').removeAttr('disabled');
-                    $('#pancard').val('');
-                    $('#idcard').removeAttr('disabled');
-                    $('#idcard').val('');
-                    $('#address').focus();
-                    $('#kycbutton').fadeIn(500);
-                } else {
-                    alert('You cant edit your KYC details');
-                }
+                $('#address').removeAttr('disabled');
+                $('#address').val('');
+                $('#district').removeAttr('disabled');
+                $('#district').val('');
+                $('#state').removeAttr('disabled');
+                $('#state').val('');
+                $('#city').removeAttr('disabled');
+                $('#city').val('');
+                $('#pancard').removeAttr('disabled');
+                $('#pancard').val('');
+                $('#idcard').removeAttr('disabled');
+                $('#idcard').val('');
+                $('#address').focus();
+                $('#kycbutton').fadeIn(500);
             }
 
             // profile details edit system
@@ -420,18 +411,13 @@ if (login()) {
 
             function accountedit() {
                 // alert('Account edit clicked');
-                var hasaccount = $('#hasaccount').val();
-                if (hasaccount == 'no') {
-                    $('#banificary').removeAttr('disabled');
-                    $('#account').removeAttr('disabled');
-                    $('#caccount').removeAttr('disabled');
-                    $('#ifsc').removeAttr('disabled');
-                    $('#banificary').focus();
-                    $('#accountbutton').fadeIn(500);
-                    $('#confirmaccount').fadeIn(500);
-                } else {
-                    alert('You cant edit account details, contact admin !');
-                }
+                $('#banificary').removeAttr('disabled');
+                $('#account').removeAttr('disabled');
+                $('#caccount').removeAttr('disabled');
+                $('#ifsc').removeAttr('disabled');
+                $('#banificary').focus();
+                $('#accountbutton').fadeIn(500);
+                $('#confirmaccount').fadeIn(500);
             }
 
             // update account function
